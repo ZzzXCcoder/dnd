@@ -1,39 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Styled Text</title>
-  <style>
-    :root {
-      --second-family: Arial, sans-serif; /* замените на ваш выбор шрифта */
-    }
-    body {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #f0f0f0; /* цвет фона */
-    }
-    .styled-text {
-      font-family: var(--second-family);
-      font-weight: 400;
-      font-size: 128px;
-      line-height: 119%;
-      letter-spacing: -0.06em;
-      text-align: center;
-      background: linear-gradient(90deg, #830909 0%, #bd3737 100%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-  </style>
-</head>
-<body>
-  <div class="styled-text">
-    Your Text Here
-  </div>
-</body>
-</html>
+<form id="textForm" method="post" action="{% url 'process_text' %}">
+    {% csrf_token %}
+    <h2>Введите текст:</h2>
+    <textarea id="inputText" name="inputText" placeholder="Введите ваш текст здесь"></textarea>
+    <button type="submit">Показать текст</button>
+</form>
